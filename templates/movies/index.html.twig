@@ -13,13 +13,13 @@
 		</div>
 	</div>
 
-	{# {% if app.user %} #}
-	<div class="mx-auto w-4/5 my-8">
-		<a href="/movies/create" class="uppercase border border-gray-500 text-lg py-4 px-6 rounded transition transition-all bg-gray-800 text-white hover:bg-white hover:text-gray-800">
-			Create New movie
-		</a>
-	</div>
-	{# {% endif %} #}
+	{% if app.user %}
+		<div class="mx-auto w-4/5 my-8">
+			<a href="/movies/create" class="uppercase border border-gray-500 text-lg py-4 px-6 rounded transition transition-all bg-gray-800 text-white hover:bg-white hover:text-gray-800">
+				Create New movie
+			</a>
+		</div>
+	{% endif %}
 
 
 	<div
@@ -43,13 +43,17 @@
 					{{ movie.description }}
 				</p>
 				<div class="text-center mb-12">
-					<a href="/movies/{{ movie.id }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-4 px-12 rounded transition transition-all hover:bg-gray-800 hover:text-white">
+					<a href="/movies/{{ movie.id }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-3 px-9 rounded transition transition-all hover:bg-gray-800 hover:text-white">
 						Keep Reading
 					</a>
 				</div>
 				<div class="text-center">
-					<a href="/movies/edit/{{ movie.id }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-4 px-12 rounded transition transition-all hover:bg-gray-800 hover:text-white">
+					<a href="/movies/edit/{{ movie.id }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-3 px-9 rounded transition transition-all hover:bg-gray-800 hover:text-white">
 						Edit movie
+					</a>
+					&nbsp;
+					<a href="/movies/delete/{{ movie.id }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-3 px-9 rounded transition transition-all hover:bg-gray-800 hover:text-white">
+						Delete movie
 					</a>
 				</div>
 			</div>

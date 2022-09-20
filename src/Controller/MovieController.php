@@ -137,4 +137,14 @@ class MovieController extends AbstractController
 
         return $this->renderForm('movies/edit.html.twig', ['form' => $form]);
     }
+
+    #[Route('/movies/delete/{id}', name:'movie_delete', methods:['GET', 'DELETE'])]
+    public function delete(int $id): Response
+    {
+        $movie = $this->movieRepository->find($id);
+        $this->em->remove($movie);
+        $this->em->flush();
+
+        return $this->redirectToRoute('movie_list');
+    }
 }

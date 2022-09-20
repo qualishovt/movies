@@ -22,7 +22,8 @@ class MovieFormType extends AbstractType
                     'class' => 'block bg-transparent border-gray-400 border-2 w-full p-3 rounded-xl text-xl outline-none mb-10',
                     'placeholder' => 'Enter title...'
                 ],
-                'label' => false
+                'label' => false,
+                'required' => false
             ])
             ->add('releaseYear', IntegerType::class, [
                 'attr' => [
